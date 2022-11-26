@@ -1,0 +1,48 @@
+.main {
+  margin-top: 100px;
+}
+
+/* pa {
+  padding: 0;
+  margin: 0;
+} */
+
+.container-information {
+  display: flex;
+  overflow: auto;
+  /* margin-bottom: 100px; */
+  padding-bottom: 10px;
+}
+
+.list-game {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.list-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.container-product {
+  display: flex;
+  overflow: auto;
+  padding-bottom: 10px;
+}
+
+#all-products {
+  text-decoration: none;
+  color: #4b89dd;
+}
+
+#all-games {
+  text-decoration: none;
+  color: #4b89dd;
+}

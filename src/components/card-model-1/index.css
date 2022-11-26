@@ -1,0 +1,32 @@
+.container-model1 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.poster-model1 {
+  width: 400px;
+  height: 280px;
+  border-radius: 2px;
+  border-radius: 20px;
+}
+
+.description-model1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#title {
+  color: #000000;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Verdana;
+}
+
+#genre {
+  color: grey;
+  font-family: Verdana;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 5px;
+}
