@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink, useMatches } from 'react-router-dom';
 
 import { HiHome } from 'react-icons/hi';
 import { BiUserCircle } from 'react-icons/bi';
@@ -10,6 +10,7 @@ import { BiCategoryAlt } from 'react-icons/bi';
 import Header from './components/header';
 import Home from './pages/home';
 import Games from './pages/games';
+import DetailGames from './pages/games/detail/detail';
 import Products from './pages/products';
 
 import './App.css';
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/all-games" element={<Games />} />
+        <Route path="/detail-games/:id" element={<DetailGames />} />
         <Route path="/all-products" element={<Products />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
       </Routes>

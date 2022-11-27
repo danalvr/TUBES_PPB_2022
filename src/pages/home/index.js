@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Fragment } from 'react';
 import CardModel1 from '../../components/card-model-1';
@@ -13,6 +13,7 @@ import Image4 from '../../img/img-4.jpg';
 import './index.css';
 
 export default function Home(props) {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
 
   const data = [
@@ -61,14 +62,20 @@ export default function Home(props) {
     }
   };
 
+  const handleDetail = (id) => {
+    navigate(`/detail-games/${id}`);
+    console.log(id);
+  };
+
   useEffect(() => {
     getUsers();
   }, []);
+
   return (
     <div className="main">
       {/* <input type="text" placeholder="Search.." /> */}
       <div className="list-product">
-        <p id="movies">Available Product</p>
+        <p id="movies">Products</p>
         <Link id="all-products" to="/all-games">
           View All
         </Link>
@@ -81,14 +88,14 @@ export default function Home(props) {
         ))}
       </div>
       <div className="list-game">
-        <p id="movies">Information</p>
+        <p id="movies">Games</p>
         <Link id="all-games" to="/all-products">
           View All
         </Link>
       </div>
       <div className="container-product">
         {users.map((user, index) => (
-          <Fragment key={index}>{index <= 4 ? <CardModel2 title={user.title} img={user.thumbnail} genre={user.genre} /> : null}</Fragment>
+          <Fragment key={index}>{index <= 4 ? <CardModel2 id={user.id} title={user.title} img={user.thumbnail} genre={user.genre} detailGames={handleDetail} /> : null}</Fragment>
         ))}
       </div>
     </div>
