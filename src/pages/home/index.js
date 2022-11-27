@@ -74,7 +74,7 @@ export default function Home(props) {
         </Link>
       </div>
       <div className="container-information">
-        {data.map((item, index) => (
+        {data.map((item) => (
           <Fragment key={item.id}>
             <CardModel1 title={item.title} img={item.img} genre={item.genre} price={item.price} />
           </Fragment>
@@ -82,7 +82,7 @@ export default function Home(props) {
       </div>
       <div className="list-game">
         <p id="movies">Information</p>
-        <Link id="all-games" to="/all-games">
+        <Link id="all-games" to="/all-products">
           View All
         </Link>
       </div>
