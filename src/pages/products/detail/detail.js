@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { Fragment } from 'react';
-import CardModel1 from '../../components/card-model-1';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
-// img
-import Image1 from '../../img/img-1.jpg';
-import Image2 from '../../img/img-2.jpg';
-import Image3 from '../../img/img-3.jpg';
-import Image4 from '../../img/img-4.jpg';
-import Image5 from '../../img/img-5.jpg';
-import Image6 from '../../img/img-6.jpg';
-import Image7 from '../../img/img-7.jpg';
-import Image8 from '../../img/img-8.jpg';
-import Image9 from '../../img/img-9.jpg';
-import Image10 from '../../img/img-10.jpg';
-import Image11 from '../../img/img-11.jpg';
-import Image12 from '../../img/img-12.jpg';
-import Image13 from '../../img/img-13.jpg';
-import Image14 from '../../img/img-14.jpg';
+// images
+import Image1 from '../../../img/img-1.jpg';
+import Image2 from '../../../img/img-2.jpg';
+import Image3 from '../../../img/img-3.jpg';
+import Image4 from '../../../img/img-4.jpg';
+import Image5 from '../../../img/img-5.jpg';
+import Image6 from '../../../img/img-6.jpg';
+import Image7 from '../../../img/img-7.jpg';
+import Image8 from '../../../img/img-8.jpg';
+import Image9 from '../../../img/img-9.jpg';
+import Image10 from '../../../img/img-10.jpg';
+import Image11 from '../../../img/img-11.jpg';
+import Image12 from '../../../img/img-12.jpg';
+import Image13 from '../../../img/img-13.jpg';
+import Image14 from '../../../img/img-14.jpg';
 
-import './index.css';
+// style
+import './detail.css';
 
-export default function Home(props) {
-  const navigate = useNavigate();
+export default function Detailproducts() {
+  let { id } = useParams();
+
   const data = [
     {
       title: 'Playstation 5',
@@ -125,25 +124,41 @@ export default function Home(props) {
     },
   ];
 
-  const handleDetailProducts = (id) => {
-    navigate(`/detail-products/${id}`);
-  };
-
   return (
-    <div className="main">
-      <div className="list-all-products">
-        <p id="movies">All Products</p>
-      </div>
-      <div className="search-all-products">
-        <input type="text" placeholder="Search.." />
-      </div>
-      <div className="container-all-products">
-        {data.map((item) => (
-          <Fragment key={item.id}>
-            <CardModel1 id={item.id} title={item.title} img={item.img} genre={item.genre} price={item.price} detailProducts={handleDetailProducts} />
-          </Fragment>
-        ))}
-      </div>
+    <div className="main-detail">
+      {data.map((item, index) =>
+        item.id == id ? (
+          <div key={index}>
+            <div className="img-detail-products">
+              <img src={item.img} id="img-products" alt="" />
+            </div>
+            <div id="spec-products">
+              <table border="1" className="styled-table-products">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td>{item.title}</td>
+                  </tr>
+                  <tr>
+                    <td>Category</td>
+                    <td>{item.genre}</td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>{item.price}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : null
+      )}
     </div>
   );
 }

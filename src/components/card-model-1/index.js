@@ -4,7 +4,7 @@ import './index.css';
 export default function index(props) {
   return (
     <div className="container-model1">
-      <img src={props.img} alt="" className="poster-model1" />
+      <img src={props.img} alt="" className="poster-model1" onClick={() => props.detailProducts(props.id)} />
       <div className="description-model1">
         <div>
           <p id="title">{props.title}</p>

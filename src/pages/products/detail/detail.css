@@ -3,24 +3,20 @@
   margin-bottom: 100px;
 }
 
-.img-detail-games {
+.img-detail-products {
   display: flex;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-#img-games {
+#img-products {
   width: 370px;
   height: 280px;
   margin-bottom: 20px;
 }
 
-th {
-  text-align: left;
-}
-
-#spec-games {
+#spec-products {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -33,36 +29,36 @@ th {
   text-align: center;
 }
 
-.styled-table {
+.styled-table-products {
   /* border: 10px solid #009879; */
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
   font-family: sans-serif;
-  min-width: 270px;
+  min-width: 390px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.styled-table thead tr {
+.styled-table-products thead tr {
   background-color: #009879;
   color: #ffffff;
   text-align: left;
 }
 
-.styled-table th,
-.styled-table td {
+.styled-table-products th,
+.styled-table-products td {
   border: 1px solid #dddddd;
   padding: 12px 15px;
 }
 
-.styled-table tbody tr {
+.styled-table-products tbody tr {
   border: 1px solid #dddddd;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
+.styled-table-products tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
 
-.styled-table tbody tr:last-of-type {
+.styled-table-products tbody tr:last-of-type {
   border-bottom: 2px solid #009879;
 }

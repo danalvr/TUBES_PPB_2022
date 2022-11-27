@@ -4,10 +4,11 @@
 }
 
 .poster-model1 {
-  width: 400px;
+  width: 360px;
   height: 280px;
   border-radius: 2px;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .description-model1 {

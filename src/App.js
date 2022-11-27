@@ -10,6 +10,7 @@ import { BiCategoryAlt } from 'react-icons/bi';
 import Header from './components/header';
 import Home from './pages/home';
 import Games from './pages/games';
+import DetailProducts from './pages/products/detail/detail';
 import DetailGames from './pages/games/detail/detail';
 import Products from './pages/products';
 
@@ -18,10 +19,11 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
-      <Header></Header>
+      {/* <Header></Header> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/all-games" element={<Games />} />
+        <Route path="/detail-products/:id" element={<DetailProducts />} />
         <Route path="/detail-games/:id" element={<DetailGames />} />
         <Route path="/all-products" element={<Products />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
@@ -33,7 +35,7 @@ function App() {
         </NavLink>
         <NavLink to="/all-games" className="iconWrapper">
           <BiCategoryAlt className="icon" />
-          Information
+          Games
         </NavLink>
         <NavLink to="/all-products" className="iconWrapper">
           <BiJoystickAlt className="icon" />

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Fragment } from 'react';
 import CardModel2 from '../../components/card-model-2';
 import './index.css';
 
 export default function Home(props) {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
@@ -21,6 +23,11 @@ export default function Home(props) {
     }
   };
 
+  const handleDetail = (id) => {
+    navigate(`/detail-games/${id}`);
+    console.log(id);
+  };
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -33,9 +40,9 @@ export default function Home(props) {
         <input type="text" placeholder="Search.." />
       </div>
       <div className="container-all-games">
-        {users.map((user, index) => (
-          <Fragment key={index}>
-            <CardModel2 title={user.title} img={user.thumbnail} genre={user.genre} />
+        {users.map((user) => (
+          <Fragment key={user.id}>
+            <CardModel2 id={user.id} title={user.title} img={user.thumbnail} genre={user.genre} detailGames={handleDetail} />
           </Fragment>
         ))}
       </div>

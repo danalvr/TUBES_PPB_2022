@@ -38,7 +38,7 @@ export default function DetailGames(props) {
                 <table border="1" className="styled-table">
                   <thead>
                     <tr>
-                      <th>Category</th>
+                      <th>Parameter</th>
                       <th>Description</th>
                     </tr>
                   </thead>

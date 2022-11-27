@@ -10,6 +10,7 @@ import Image1 from '../../img/img-1.jpg';
 import Image2 from '../../img/img-2.jpg';
 import Image3 from '../../img/img-3.jpg';
 import Image4 from '../../img/img-4.jpg';
+import Image5 from '../../img/img-5.jpg';
 import './index.css';
 
 export default function Home(props) {
@@ -45,6 +46,13 @@ export default function Home(props) {
       genre: 'Game Console',
       img: Image4,
     },
+    {
+      title: 'Xbox 360',
+      id: 5,
+      price: 'Rp3.800.000',
+      genre: 'Game Console',
+      img: Image5,
+    },
   ];
 
   const getUsers = async () => {
@@ -62,9 +70,12 @@ export default function Home(props) {
     }
   };
 
-  const handleDetail = (id) => {
+  const handleDetailProducts = (id) => {
+    navigate(`/detail-products/${id}`);
+  };
+
+  const handleDetailGames = (id) => {
     navigate(`/detail-games/${id}`);
-    console.log(id);
   };
 
   useEffect(() => {
@@ -76,26 +87,26 @@ export default function Home(props) {
       {/* <input type="text" placeholder="Search.." /> */}
       <div className="list-product">
         <p id="movies">Products</p>
-        <Link id="all-products" to="/all-games">
+        <Link id="all-products" to="/all-products">
           View All
         </Link>
       </div>
       <div className="container-information">
         {data.map((item) => (
           <Fragment key={item.id}>
-            <CardModel1 title={item.title} img={item.img} genre={item.genre} price={item.price} />
+            <CardModel1 id={item.id} title={item.title} img={item.img} genre={item.genre} price={item.price} detailProducts={handleDetailProducts} />
           </Fragment>
         ))}
       </div>
       <div className="list-game">
         <p id="movies">Games</p>
-        <Link id="all-games" to="/all-products">
+        <Link id="all-games" to="/all-games">
           View All
         </Link>
       </div>
       <div className="container-product">
         {users.map((user, index) => (
-          <Fragment key={index}>{index <= 4 ? <CardModel2 id={user.id} title={user.title} img={user.thumbnail} genre={user.genre} detailGames={handleDetail} /> : null}</Fragment>
+          <Fragment key={index}>{index <= 5 ? <CardModel2 id={user.id} title={user.title} img={user.thumbnail} genre={user.genre} detailGames={handleDetailGames} /> : null}</Fragment>
         ))}
       </div>
     </div>
