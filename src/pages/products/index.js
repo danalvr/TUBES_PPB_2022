@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { Fragment } from 'react';
 import CardModel1 from '../../components/card-model-1';
 
@@ -24,6 +23,8 @@ import './index.css';
 
 export default function Home(props) {
   const navigate = useNavigate();
+  const [query, setQuery] = useState();
+
   const data = [
     {
       title: 'Playstation 5',
@@ -129,20 +130,42 @@ export default function Home(props) {
     navigate(`/detail-products/${id}`);
   };
 
+  const onSearch = (e) => {
+    if (e.key === 'Enter') {
+      setQuery(e.target.value);
+      // console.log(query);
+    }
+  };
+
   return (
     <div className="main">
       <div className="list-all-products">
         <p id="movies">All Products</p>
       </div>
       <div className="search-all-products">
-        <input type="text" placeholder="Search.." />
+        <input type="text" placeholder="Search.." onKeyDown={(e) => onSearch(e)} />
       </div>
       <div className="container-all-products">
-        {data.map((item) => (
+        {/* {data.map((item) => (
           <Fragment key={item.id}>
             <CardModel1 id={item.id} title={item.title} img={item.img} genre={item.genre} price={item.price} detailProducts={handleDetailProducts} />
           </Fragment>
-        ))}
+        ))} */}
+        {query == undefined || query == ''
+          ? data.map((item) =>
+              item.id !== query ? (
+                <Fragment key={item.id}>
+                  <CardModel1 id={item.id} title={item.title} img={item.img} genre={item.genre} price={item.price} detailProducts={handleDetailProducts} />
+                </Fragment>
+              ) : null
+            )
+          : data.map((item) =>
+              item.id == query ? (
+                <Fragment key={item.id}>
+                  <CardModel1 id={item.id} title={item.title} img={item.img} genre={item.genre} price={item.price} detailProducts={handleDetailProducts} />
+                </Fragment>
+              ) : null
+            )}
       </div>
     </div>
   );
