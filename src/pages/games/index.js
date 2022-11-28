@@ -39,7 +39,7 @@ export default function Home(props) {
     }
   };
   return (
-    <div className="main">
+    <div className="main-games">
       <div className="list-all-games">
         <p id="movies">All Games</p>
       </div>

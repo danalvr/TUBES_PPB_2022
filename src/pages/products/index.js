@@ -138,7 +138,7 @@ export default function Home(props) {
   };
 
   return (
-    <div className="main">
+    <div className="main-products">
       <div className="list-all-products">
         <p id="movies">All Products</p>
       </div>
