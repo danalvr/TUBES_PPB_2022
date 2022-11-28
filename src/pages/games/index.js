@@ -8,6 +8,7 @@ import './index.css';
 export default function Home(props) {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
+  const [query, setQuery] = useState();
 
   const getUsers = async () => {
     try {
@@ -23,7 +24,7 @@ export default function Home(props) {
     }
   };
 
-  const handleDetail = (id) => {
+  const handleDetailGames = (id) => {
     navigate(`/detail-games/${id}`);
     console.log(id);
   };
@@ -31,20 +32,36 @@ export default function Home(props) {
   useEffect(() => {
     getUsers();
   }, []);
+  const onSearch = (e) => {
+    if (e.key === 'Enter') {
+      setQuery(e.target.value);
+      // console.log(query);
+    }
+  };
   return (
     <div className="main">
       <div className="list-all-games">
         <p id="movies">All Games</p>
       </div>
       <div className="search-all-games">
-        <input type="text" placeholder="Search.." />
+        <input type="text" placeholder="Search.." onKeyDown={(e) => onSearch(e)} />
       </div>
       <div className="container-all-games">
-        {users.map((user) => (
-          <Fragment key={user.id}>
-            <CardModel2 id={user.id} title={user.title} img={user.thumbnail} genre={user.genre} detailGames={handleDetail} />
-          </Fragment>
-        ))}
+        {query == undefined || query == ''
+          ? users.map((user) =>
+              user.id !== query ? (
+                <Fragment key={user.id}>
+                  <CardModel2 id={user.id} title={user.title} img={user.thumbnail} genre={user.genre} detailGames={handleDetailGames} />
+                </Fragment>
+              ) : null
+            )
+          : users.map((user) =>
+              user.id == query ? (
+                <Fragment key={user.id}>
+                  <CardModel2 id={user.id} title={user.title} img={user.thumbnail} genre={user.genre} detailGames={handleDetailGames} />
+                </Fragment>
+              ) : null
+            )}
       </div>
     </div>
   );
