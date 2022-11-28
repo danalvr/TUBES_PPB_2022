@@ -13,6 +13,7 @@ import Games from './pages/games';
 import DetailProducts from './pages/products/detail/detail';
 import DetailGames from './pages/games/detail/detail';
 import Products from './pages/products';
+import ErrorPage from './pages/error';
 
 import './App.css';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/detail-products/:id" element={<DetailProducts />} />
         <Route path="/detail-games/:id" element={<DetailGames />} />
         <Route path="/all-products" element={<Products />} />
+        <Route path="*" element={<ErrorPage />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
       </Routes>
       <footer>
